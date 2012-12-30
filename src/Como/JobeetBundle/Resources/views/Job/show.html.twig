@@ -1,0 +1,56 @@
+{% extends 'ComoJobeetBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ entity.company }} is looking for a {{ entity.position }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block headline %}<h4>Job Details</h4>{% endblock headline %}
+
+{% block content %}
+  {% if app.request.get('token') %}
+    {% include 'ComoJobeetBundle:Job:admin.html.twig' with {'job': entity} %}
+  {% endif %}
+    <div class="well" >
+      <h4>{{ entity.company }}</h4>
+      <h5>{{ entity.location }}</h5>
+      <h6>
+        {{ entity.position }}
+        <small> - {{ entity.type }}</small>
+      </h6>
+
+      {% if entity.logo %}
+        <div class="logo">
+          <a href="{{ entity.url }}">
+            <img src="/uploads/jobs/{{ entity.logo }}"
+              alt="{{ entity.company }} logo" />
+          </a>
+        </div>
+      {% endif %}
+
+      <div class="description">
+        {{ entity.description|nl2br }}
+      </div>
+
+      <h4>How to apply?</h4>
+
+      <p class="how_to_apply">{{ entity.howtoapply }}</p>
+
+      <div class="meta">
+        <small>posted on {{ entity.createdat|created_ago }}</small>
+      </div>
+      {% if entity.updatedat %}
+        <div class="meta">
+            <small>updated on {{ entity.updatedat|created_ago }}</small>
+          </div>
+      {% endif %}
+      <div style="padding: 20px 0">
+        <a href="{{ path('job_edit', { 'token': entity.token }) }}">
+          Edit
+        </a>
+      </div>
+    </div>
+{% endblock %}

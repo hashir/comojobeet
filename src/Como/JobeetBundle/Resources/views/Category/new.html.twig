@@ -1,0 +1,17 @@
+{% extends 'ComoJobeetBundle::layout.html.twig' %}
+
+{% block headline %}Category creation{% endblock headline %}
+
+{% block content %}
+
+
+<form action="{{ path('category_create') }}" method="post" {{ form_enctype(form) }} class="well">
+    {{ form_widget(form) }}
+
+    <legend></legend>
+              <button type="submit" class="btn  btn-inverse">Create</button>
+              <a href="{{ path('category') }}" class="btn  btn-inverse">Cancel</a>
+    
+</form>
+
+{% endblock content %}

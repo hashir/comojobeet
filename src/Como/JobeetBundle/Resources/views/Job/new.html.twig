@@ -1,0 +1,32 @@
+{% extends 'ComoJobeetBundle::layout.html.twig' %}
+ 
+{% form_theme form _self %}
+ 
+{% block field_errors %}
+{% spaceless %}
+  {% if errors|length > 0 %}
+    <ul class="error_list">
+      {% for error in errors %}
+        <li>{{ error.messageTemplate|trans(error.messageParameters, 'validators') }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endspaceless %}
+{% endblock field_errors %}
+ 
+{% block stylesheets %}
+  {{ parent() }}
+{% endblock %}
+ 
+{% block headline %}<h4>Job creation</h4>{% endblock headline %}
+
+{% block content %}
+  
+  <form action="{{ path('job_create') }}" method="post" {{ form_enctype(form) }}  class="well">    
+   
+       {{ form_widget(form) }}
+       <legend></legend>
+              <button type="submit" value="Preview Your Job" class="btn  btn-inverse">Preview Your Job</button>
+              <a href="{{ path('job') }}" class="btn  btn-inverse">Cancel</a>
+  </form>
+{% endblock %}

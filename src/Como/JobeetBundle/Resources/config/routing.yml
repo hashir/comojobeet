@@ -1,0 +1,22 @@
+#como_jobeet_homepage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: ComoJobeetBundle:Default:index }
+
+job_home_page:
+    pattern:  /
+    defaults: { _controller: ComoJobeetBundle:Job:index }
+    
+ComoJobeetBundle_job:
+        resource: "@ComoJobeetBundle/Resources/config/routing/job.yml"
+        prefix:   /job
+ComoJobeetBundle_category:
+        resource: "@ComoJobeetBundle/Resources/config/routing/category.yml"
+        prefix:   /category
+        
+ComoJobeetBundle_category:
+    pattern:  /category/{slug}/{page}
+    defaults: { _controller: ComoJobeetBundle:Category:show, page: 1 }
+    
+search_ajax:
+  pattern: /ajax/search/{query}
+  defaults: { _controller: "ComoJobeetBundle:Job:search" }

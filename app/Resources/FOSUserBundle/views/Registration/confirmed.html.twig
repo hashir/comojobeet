@@ -1,0 +1,12 @@
+{% extends 'ComoJobeetBundle::layout.html.twig' %}
+
+
+{% block headline %}Registration Successfull{% endblock headline %}
+
+{% block content %}
+    <p class="well">{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
+    {% if app.session is not empty %}
+        {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
+    {% endif %}
+{% endblock content %}

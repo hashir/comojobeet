@@ -1,0 +1,22 @@
+parameters:
+    como.indexer: Como\SearchBundle\Listener\Indexer
+    como.search:  Como\SearchBundle\Utils\Search
+    como.index.entities:
+      - { Job: [position, company, location, description] }
+      - { Category: [name] }
+    como.index.results:      
+      - [ Job, Category ]
+    como.index.constraints:      
+      - { Job: {is_activated: true } }
+#      - { Category: [name] }
+#       - [ Job: {is_activated: 1, is_expired: 1 }, Category: {is_activated: 1} ]
+services:
+    lucene.listener:
+            class: %como.indexer%
+            arguments: ["@search_indexer", %como.index.entities%, %como.index.constraints%  ]
+            tags:
+                - { name: doctrine.event_listener, event: postUpdate, method: postUpdate }
+                - { name: doctrine.event_listener, event: postPersist, method: postPersist }
+
+    search_indexer:
+        class: %como.search%

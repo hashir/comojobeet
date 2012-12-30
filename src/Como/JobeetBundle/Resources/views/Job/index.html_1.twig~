@@ -1,0 +1,29 @@
+{% extends 'ComoTneBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('bundles/comotne/css/jobs.css') }}" type="text/css" media="all" />
+{% endblock %}
+{% block content %}
+
+  <div id="jobs">
+    {% for category in categories %}
+      <div>
+        <div class="category">
+          <div class="feed">
+            <a href="">Feed</a>
+          </div>
+          <h1><a href="{{ path('ComoTneBundle_category', { 'slug': category.slug }) }}">{{ category.name }}</a></h1>
+        </div>
+        {% include 'ComoTneBundle:Job:list.html.twig' with {'jobs': category.activejobs} %}
+            {% if category.morejobs %}
+            <div class="more_jobs">
+              and <a href="{{ path('ComoTneBundle_category', { 'slug': category.slug }) }}">{{ category.morejobs }}</a>
+              more...
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+     
+  </div>
+{% endblock %}

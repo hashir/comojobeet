@@ -1,0 +1,41 @@
+{% extends 'ComoTneBundle::layout.html.twig' %}
+
+{% block headline %}Jobbet Category List 
+    <div class="btn-group pull-right">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Action
+        <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{path('category_new')}}">Create New Entry</a></li>
+        </ul>
+    </div>
+{% endblock headline %}
+
+{% block content %}
+
+<table class="table well table_striped">
+    <thead>
+        <tr>
+            
+            <th>Name</th>
+           <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+            
+            <td>{{ entity.name }}</td>            
+            <td>
+                <form action="{{ path('category_edit', { 'id': entity.id }) }}" method="post" style="margin:0px;">
+                   
+                    <button type="submit"><span class="add-on"><i class="icon-pencil"></i></span>Edit</button>
+                  </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

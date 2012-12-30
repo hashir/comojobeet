@@ -1,0 +1,28 @@
+Srini\Bundle\JobeetBundle\Entity\Affiliate:
+  type: entity
+  table: affiliate
+  repositoryClass: Srini\Bundle\JobeetBundle\Entity\AffiliateRepository
+  fields:
+    id:
+        type: integer
+        id: true
+        generator:
+            strategy: AUTO
+    url:
+      type: string
+      length: 255
+    email:
+      type: string
+      length: 255
+      unique: true
+    token:
+      type: string
+      length: 255
+    created_at:
+      type: datetime
+  oneToMany:
+    category_affiliates:
+      targetEntity: CategoryAffiliate
+      mappedBy: affiliate
+  lifecycleCallbacks:
+    prePersist: [ setCreatedAtValue ]

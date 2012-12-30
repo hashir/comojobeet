@@ -1,0 +1,85 @@
+{% extends '::base.html.twig' %}
+
+{% block head_style %}
+    {{parent() }}    
+{% endblock head_style %}
+
+{% block title %}Como Jobeet Bundle{% endblock title %}
+
+{% block body_tag %}
+    <body data-spy="scroll" style="background-color: white; background-image: url({{asset('bundles/comojobeet/images/pattern1.png') }})">
+{% endblock body_tag %}
+
+{% block body %}
+{% block navbar %}
+   {#{ mopa_bootstrap_navbar('frontendNavbar') }#}
+{% endblock navbar %}
+    {% block container %}
+<div class="container-fluid ">
+    <div class="row-fluid" >
+        <div class="span1">
+        &nbsp;
+        </div>
+        <div class="span10">
+            <div class="row-fluid" style="background-image: url({{asset('bundles/comojobeet/images/bg-header.jpg')}})" >
+                <div class="span6">
+                    <a href="{{ path('job_home_page') }}">
+                        <!--img src="{{ asset('bundles/comojobeet/images/logo.jpg') }}" alt="Jobeet Job Board" /-->
+                        Jobeet Job Board
+                      </a>
+                </div>
+                <div class="span6" style="text-align: right; vertical-align:middle">
+                    <h4>  <a href="{{ path('job_new') }}">Post a Job</a> </h4>
+                </div>                                
+            </div><br />
+            <div class="row-fluid" style="margin-bottom: 10px;" > 
+                
+                  <input type="text" name="query" id="search_form_text" class="span12 search-query" placeholder="Search Your Jobs here ...">                  
+                
+            </div>
+
+            <div class="row-fluid" id="output">
+                    <!--   content starts --->
+                        
+                        <div class="row-fluid">
+                              <h4>{% block headline %} {% endblock headline %}</h4>
+                        </div>                      
+
+                        {% block flashes %}
+                        {#% if app.session.flashbag.peekAll|length > 0 %}
+                        <div class="row-fluid">
+                            <div class="span12">
+                            {{ session_flash() }}
+                            </div>
+                        </div>
+                        {% endif %#}
+                        {% endblock flashes %}
+
+                        {% block content %}
+                            xyz
+                        {% endblock content %}
+                        
+                    <!--   content ends------>    
+            </div>
+            <div class="row-fluid">
+                
+            </div>
+            <div class="row-fluid">
+                
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="span1">
+        &nbsp;
+        </div>
+    {% endblock container %}
+    {% block foot_script %}
+    {# To only use a subset or add more js overwrite and copy paste this block
+    To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
+    Otherwise the regeneration is done on every load in dev more with use_controller: true
+     #}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/comojobeet/js/ajax_search.js') }}"></script>
+{% endblock foot_script %}
+{% endblock body %}      

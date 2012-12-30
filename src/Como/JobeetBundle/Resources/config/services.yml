@@ -1,0 +1,11 @@
+parameters:
+#    como_jobeet.example.class: Como\JobeetBundle\Example
+
+services:
+#    como_jobeet.example:
+#        class: %como_jobeet.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    como_jobeet.twig.extension:
+        class: Como\JobeetBundle\Twig\Extensions\CreatedAgo
+        tags:
+            - { name: twig.extension }

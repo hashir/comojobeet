@@ -1,0 +1,33 @@
+{% extends 'ComoTneBundle::layout.html.twig' %}
+
+{% block headline %}Jobbet Job Board
+
+        <div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            Action
+            <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="{{path('job_new')}}">Create New Entry</a></li>
+            </ul>
+        </div><br/>
+{% endblock headline %}
+
+{% block content %}
+        {% for category in categories %}     
+          <div class="row-fluid ">   
+
+          {% include 'ComoTneBundle:Job:list.html.twig' with {'jobs': category.activejobs, 'category': category} %}
+
+            {% if category.morejobs %}
+          
+            <div>
+                <span class="pull-right">
+                  and <a href="{{ path('ComoTneBundle_category', { 'slug': category.slug }) }}">{{ category.morejobs }}</a>
+                  more...
+                </span>
+            </div>
+          {% endif %}
+     
+      {% endfor %}
+{% endblock content %}

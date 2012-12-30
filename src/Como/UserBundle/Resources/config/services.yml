@@ -1,0 +1,7 @@
+parameters:
+#    como_user.example.class: Como\UserBundle\Example
+
+services:
+#    como_user.example:
+#        class: %como_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,7 @@
+{% extends 'ComoTneBundle::layout.html.twig' %}
+
+{% block headline %}User Profile{% endblock headline %}
+
+{% block content %}
+{% include "FOSUserBundle:Profile:show_content.html.twig" %}
+{% endblock content %}

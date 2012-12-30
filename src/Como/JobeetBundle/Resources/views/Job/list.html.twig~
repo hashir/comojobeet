@@ -1,0 +1,26 @@
+<table class="table table-striped table-hover well">
+    {% if category %}
+        <thead>
+        <tr><th colspan="4"><a href="{{ path('ComoTneBundle_category', { 'slug': category.slug }) }}">{{ category.name }}</a>
+                            <a href="{{ path('ComoTneBundle_category', { 'slug': category.slug, '_format': 'atom' }) }}" class="pull-right">Feed</a>
+        </th></tr>
+        </thead>
+    {% endif %}
+    <tbody>
+        {% for entity in jobs %}
+        <tr class="{{ cycle(['row-fluid even', 'row-fluid odd'], loop.index) }}" >
+            <td>
+                {{ entity.location }}
+            </td>
+            <td>
+                <a href="{{ path('job_show', { 'id': entity.id, 'company': entity.companyslug, 'location': entity.locationslug, 'position': entity.positionslug }) }}">
+                  {{ entity.position }}
+                </a>
+            </td>
+            <td>
+                {{ entity.company }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
