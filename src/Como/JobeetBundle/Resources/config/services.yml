@@ -6,9 +6,9 @@ services:
 #        class: %como_jobeet.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
     como_jobeet.twig.extcomoion:
-        class: Como\JobeetBundle\Twig\Extcomoions\CreatedAgo
+        class: Como\JobeetBundle\Twig\Extensions\CreatedAgo
         tags:
-            - { name: twig.extcomoion }
+            - { name: twig.extension }
             
     como.jobeet.admin.category:
         class: Como\JobeetBundle\Admin\CategoryAdmin

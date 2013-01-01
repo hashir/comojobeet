@@ -3,7 +3,6 @@
   <title>Jobeet ({{ category.name }})</title>
   <subtitle>Latest Jobs</subtitle>
   <link href="{{ url('category', { 'slug': category.slug, '_format': 'atom' }) }}" rel="self" />
-  <link href="{{ url('category', { 'slug': category.slug }) }}" />
   <updated>{{ category.activejobs[0].createdAt.format(constant('DATE_ATOM')) }}</updated>
   <author><name>Jobeet</name></author>
   <id>{{ feedId }}</id>
@@ -12,7 +11,7 @@
     <entry>
       <title>{{ entity.position }} ({{ entity.location }})</title>
       <link href="{{ url('job_show', { 'id': entity.id, 'company': entity.companyslug, 'location': entity.locationslug, 'position': entity.positionslug }) }}" />
-      <id>{{ entity.id }}</id>
+      <id>{{ url('job_show', { 'id': entity.id, 'company': entity.companyslug, 'location': entity.locationslug, 'position': entity.positionslug }) }}</id>
       <updated>{{ entity.createdAt.format(constant('DATE_ATOM')) }}</updated>
       <summary type="xhtml">
         <div xmlns="http://www.w3.org/1999/xhtml">
