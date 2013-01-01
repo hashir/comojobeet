@@ -5,7 +5,25 @@ services:
 #    como_jobeet.example:
 #        class: %como_jobeet.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
-    como_jobeet.twig.extension:
-        class: Como\JobeetBundle\Twig\Extensions\CreatedAgo
+    como_jobeet.twig.extcomoion:
+        class: Como\JobeetBundle\Twig\Extcomoions\CreatedAgo
         tags:
-            - { name: twig.extension }
+            - { name: twig.extcomoion }
+            
+    como.jobeet.admin.category:
+        class: Como\JobeetBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Jobeet, label: Categories }
+        arguments: [null, Como\JobeetBundle\Entity\Category, ComoJobeetBundle:CategoryAdmin]
+ 
+    como.jobeet.admin.job:
+        class: Como\JobeetBundle\Admin\JobAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Jobeet, label: Jobs }
+        arguments: [null, Como\JobeetBundle\Entity\Job, ComoJobeetBundle:JobAdmin]
+        
+    como.jobeet.admin.user:
+        class: Como\JobeetBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Jobeet, label: Admins }
+        arguments: [null, Como\UserBundle\Entity\User, ComoJobeetBundle:UserAdmin]

@@ -17,10 +17,8 @@
     {% block container %}
 <div class="container-fluid ">
     <div class="row-fluid" >
-        <div class="span1">
-        &nbsp;
-        </div>
-        <div class="span10">
+        
+        <div class="span12">
             <div class="row-fluid" style="background-image: url({{asset('bundles/comojobeet/images/bg-header.jpg')}})" >
                 <div class="span6">
                     <a href="{{ path('job_home_page') }}">
@@ -70,9 +68,7 @@
         </div>
     </div>    
 </div>
-<div class="span1">
-        &nbsp;
-        </div>
+
     {% endblock container %}
     {% block foot_script %}
     {# To only use a subset or add more js overwrite and copy paste this block
