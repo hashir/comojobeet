@@ -42,7 +42,6 @@ class UserAdmin extends Admin
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
-                    'delete' => array(),
                 )
             ))
         ;
