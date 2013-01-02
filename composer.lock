@@ -677,18 +677,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker",
-                "reference": "4a1e258d06f463e871f77d19cce822799f9d4d28"
+                "reference": "140b5d4d3f7bb81b300ad4f53fe5b11b45aa8dde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fzaninotto/Faker/archive/4a1e258d06f463e871f77d19cce822799f9d4d28.zip",
-                "reference": "4a1e258d06f463e871f77d19cce822799f9d4d28",
+                "url": "https://github.com/fzaninotto/Faker/archive/140b5d4d3f7bb81b300ad4f53fe5b11b45aa8dde.zip",
+                "reference": "140b5d4d3f7bb81b300ad4f53fe5b11b45aa8dde",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2012-12-21 15:40:50",
+            "time": "2013-01-01 15:09:45",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -848,7 +848,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -891,7 +891,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -3356,7 +3356,7 @@
             },
             "type": "library",
             "installation-source": "source",
-            "time": "2012-10-31 04:59:56"
+            "time": "2012-12-22 02:54:36"
         },
         {
             "name": "willdurand/faker-bundle",

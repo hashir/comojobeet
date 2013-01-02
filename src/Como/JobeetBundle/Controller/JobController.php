@@ -293,7 +293,7 @@ class JobController extends Controller
             return $response;
         }
 //        print_r($pkids);exit;
-        foreach($pkids as $id){
+        foreach($pkids->Job as $id){
             $ent = $em->getRepository('ComoJobeetBundle:Job')->findOneById($id);
             $location_s = Jobeet::slugify($ent->getLocation());
             $position_s = Jobeet::slugify($ent->getPOsition());
