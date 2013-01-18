@@ -295,18 +295,20 @@ class JobController extends Controller
 //        print_r($pkids);exit;
         foreach($pkids->Job as $id){
             $ent = $em->getRepository('ComoJobeetBundle:Job')->findOneById($id);
-            $location_s = Jobeet::slugify($ent->getLocation());
-            $position_s = Jobeet::slugify($ent->getPOsition());
-            $company_s  = Jobeet::slugify($ent->getCompany());
-            $entarr[] = array(
-                    'location'  => $ent->getLocation(),
-                    'position'  => $ent->getPOsition(),
-                    'company'   => $ent->getCompany(),
-                    'ref'       => $ent->getId(),
-                    'location_s'=> $location_s,
-                    'position_s'=> $position_s,
-                    'company_s' => $company_s,
-                );
+            if($ent){
+                $location_s = Jobeet::slugify($ent->getLocation());
+                $position_s = Jobeet::slugify($ent->getPOsition());
+                $company_s  = Jobeet::slugify($ent->getCompany());
+                $entarr[] = array(
+                        'location'  => $ent->getLocation(),
+                        'position'  => $ent->getPOsition(),
+                        'company'   => $ent->getCompany(),
+                        'ref'       => $ent->getId(),
+                        'location_s'=> $location_s,
+                        'position_s'=> $position_s,
+                        'company_s' => $company_s,
+                    );
+            }
         }
 //        $jobEntities = $em->getRepository('ComoJobeetBundle:Job')->searchByQuery($query);
 //        foreach($jobEntities as $ent){
